@@ -3,11 +3,11 @@
 
 var mongoose = require('mongoose');
 
-var menteeSchema = mongoose.Schema({
+var menteeSchema = new mongoose.Schema({
 	name: String,
 	email: String,
 	mentor: String,
-	mentorID: String,
+	mentorID: mongoose.Schema.ObjectId,
 	favSubject: String,
 	favSport: String,
 	school: String,
