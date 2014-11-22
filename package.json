@@ -1,7 +1,15 @@
 {
   "name": "wildhacks2014",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "body-parser": "^1.9.3",
+    "connect-flash": "^0.1.1",
+    "express": "^4.10.2",
+    "method-override": "^2.3.0",
+    "mongoose": "^3.8.19",
+    "passport": "^0.2.1",
+    "passport-local": "^1.0.0"
+  },
   "devDependencies": {
     "grunt": "^0.4.1",
     "grunt-autoprefixer": "^0.7.3",
