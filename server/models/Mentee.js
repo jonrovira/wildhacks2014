@@ -8,6 +8,7 @@ var menteeSchema = new mongoose.Schema({
 	email: String,
 	mentor: String,
 	mentorID: mongoose.Schema.ObjectId,
+	relationshipID: mongoose.Schema.ObjectId,
 	favSubject: String,
 	favSport: String,
 	school: String,

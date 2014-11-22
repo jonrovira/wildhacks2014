@@ -6,6 +6,7 @@ var app            = express();
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
+var passport = require('passport');
 
 // configuration ===========================================
     
@@ -36,6 +37,8 @@ app.use(methodOverride('X-HTTP-Method-Override'));
 app.use(express.static(__dirname + '/app')); 
 app.use(express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/dist'));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // "bower_components" is the directory used in the index.html
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
