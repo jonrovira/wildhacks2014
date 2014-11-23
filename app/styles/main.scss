@@ -194,7 +194,7 @@ section.dashboard {
 	}
 	section.messages {
 		float: right;
-		// margin-top: 40px;
+		margin-top: 1px;
 		margin-right: 70px;
 	}
 }
@@ -298,11 +298,11 @@ section.messages {
 
 	div.messages-content {
 		margin: 0 auto;
-		height: 510px;
+		height: 495px;
 
 		ul.message-feed {
 			padding: 30px 0 10px 0;
-			height: 460px;
+			height: 455px;
 			overflow-y: scroll;
 			list-style: none;
 
@@ -357,7 +357,7 @@ section.messages {
 				}
 			}
 			li.message:last-child {
-				margin-bottom: none;
+				margin-bottom: 0;
 			}
 			li.message.user {
 				float: right;
@@ -386,8 +386,8 @@ section.messages {
 				height: 40px;
 				font-size: 14px;
 				border: none;
-				box-shadow: 1px 1px 1px #ddd inset,
-				            1px 1px 1px #fff;
+				// box-shadow: 1px 1px 1px #ddd inset,
+				//             1px 1px 1px #fff;
 				outline: none;
 			}
 		input#message-submit {
