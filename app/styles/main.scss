@@ -188,16 +188,72 @@ section.login {
 /* CREATE PROFILE */
 section.create-profile {
 	margin: 0 auto;
-	width: 800px;
+	width: 600px;
 
+	h2 {
+		padding: 10px;
+		color: #666;
+	}
 	div.create-profile-form {
 		background-color: #fff;
 
+		input[type="text"], input[type="password"], textarea {
+			margin-right: 28px;
+			margin-bottom: 15px;
+			padding: 5px;
+			width: 155px;
+			font-size: 14px;
+			border: 1px solid #eee;
+			border-radius: 3px;
+		}
+		input + input {
+			margin-right: 0 !important;
+		}
+
 		div.business-items {
-			padding: 20px;
+			padding: 20px 40px;
+			height: 180px;
+			border-bottom: 1px dotted #bbb;
+
+			div.image-container {
+				display: inline-block;
+				width: 120px;
+				height: 120px;
+				text-align: center;
+				background-color: #444;
+				border-radius: 3px;
+
+				i {
+					line-height: 120px;
+					font-size: 35px;
+					color: #ddd;
+				}
+			}
+			div.business-item-inputs {
+				display: inline-block;
+				padding: 0 0 0 20px;
+				width: calc(100% - 130px - 20px);
+				height: 120px;
+				vertical-align: top;
+			}
 		}
 		div.informal {
-			padding: 20px;
+			padding: 20px 40px;
+
+			div.favorites {
+				display: inline-block;
+				width: 200px;
+				vertical-align: top;
+			}
+			div.shortResponse {
+				display: inline-block;
+				width: calc(100% - 220px);
+
+				textarea {
+					width: 100%;
+					min-height: 50px;
+				}
+			}
 		}
 	}
 }
@@ -315,7 +371,7 @@ section.leftPane {
 
 /* MESSAGES */
 section.messages {
-	width: calc(100% - #{$left-pane-width} - 130px);
+	width: calc(100% - #{$left-pane-width} - 140px);
 
 	div.messages-content {
 		margin: 0 auto;
@@ -328,7 +384,7 @@ section.messages {
 			list-style: none;
 
 			li.message {
-				margin-bottom: 20px;
+				margin-bottom: 30px;
 				padding: 12px;
 				font-size: 14px;
 				border-radius: 3px;
@@ -349,8 +405,8 @@ section.messages {
 				p.message-body {
 					display: inline-block;
 					width: calc(100% - 150px);
-					line-height: 19px;
-					color: #444;
+					line-height: 21px;
+					color: #555;
 				}
 			}
 			li.message.user {
@@ -407,8 +463,6 @@ section.messages {
 				height: 40px;
 				font-size: 14px;
 				border: none;
-				// box-shadow: 1px 1px 1px #ddd inset,
-				//             1px 1px 1px #fff;
 				outline: none;
 			}
 		input#message-submit {
