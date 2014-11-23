@@ -11,6 +11,36 @@ module.exports = function(app) {
 
 	/* AUTHENTICATION */
 
+	// Handle login
+	app.post('/login', function(req, res) {
+		// Validate req.body
+		if (!req.body) {
+			return res.send(401, 'Please enter username and password!');
+		}
+		console.log(req.body);
+		User.findOne({ 'email': req.body.email }, function(err, user) {
+			// check if some error occurred during database retrieval
+			if (err) {
+				return res.send(500, err);
+			}
+
+			if (!user) {
+				return res.send(400, 'Incorrect username!');
+			}
+
+			// if (!user.validPassword(req.body.password)) {
+			// 	return res.send(400, 'Incorrect password!');
+			// }
+
+			// user found, sign token using our secret
+			var token = jwt.sign(user, 'nevilandjon', { expiresInMinutes: 300 });
+			console.log('Sending token to frontend...');
+			// send token to Angular frontend
+			res.json({ token: token });
+		});
+	});
+
+	// handle new user signup
 	app.post('/signup', function(req, res) {
 		// Validate req.body
 		if (!req.body) {
@@ -22,12 +52,17 @@ module.exports = function(app) {
 			if (err) {
 				return res.send(500, err);
 			}
+			// Send error message if user already exists
+			if (user) {
+				res.send(404, 'A user with that email already exists!');
+			}
 			if (!user) {
+				// if user doesn't exist, create the user
 				var newUser = new User();
 				newUser.firstName = req.body.firstName;
 				newUser.lastName = req.body.lastName;
 				newUser.email = req.body.email;
-				newUser.password = req.body.password;
+				newUser.password = newUser.generateHash(req.body.password);
 				newUser.city = req.body.city;
 				newUser.state = req.body.state;
 				newUser.school = req.body.school;
@@ -36,12 +71,15 @@ module.exports = function(app) {
 				newUser.major = req.body.major;
 				newUser.favSport = req.body.favSport;
 				newUser.hobby = req.body.hobby;
+				// save new object to database
 				newUser.save(function(err) {
 					if (err) {
 						return res.send(400, err);
 					}
-					var token = jwt.sign(newUser, 'nevilandjon', {expiresInMinutes: 300});
+					// once successfully save, sign token using our secret
+					var token = jwt.sign(newUser, 'nevilandjon', { expiresInMinutes: 300 });
 					console.log('Sending token to frontend...');
+					// send the token to our Angular frontend
 					res.json({ token: token });
 				});
 			}
