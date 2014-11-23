@@ -32,6 +32,9 @@ var app = angular
                 templateUrl: 'views/createProfile.html',
                 controller: 'NewCtrl'
             })
+            .when('/champs', {
+                templateUrl: 'views/leaderboard.html',
+            })
             .otherwise({
                 redirectTo: '/'
             });

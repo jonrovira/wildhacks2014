@@ -121,6 +121,9 @@ main {
 	section.login {
 		padding-top: 170px;
 	}
+	section.create-profile {
+		padding-top: 70px;
+	}
 }
 
 
@@ -182,6 +185,24 @@ section.login {
 }
 
 
+/* CREATE PROFILE */
+section.create-profile {
+	margin: 0 auto;
+	width: 800px;
+
+	div.create-profile-form {
+		background-color: #fff;
+
+		div.business-items {
+			padding: 20px;
+		}
+		div.informal {
+			padding: 20px;
+		}
+	}
+}
+
+
 /* DASHBOARD */
 section.dashboard {
 
@@ -191,11 +212,10 @@ section.dashboard {
 	}
 	section.leftPane {
 		float: left;
-		margin-top: 40px;
 	}
 	section.messages {
 		float: right;
-		margin-top: 40px;
+		margin-top: 1px;
 		margin-right: 70px;
 	}
 }
@@ -206,7 +226,7 @@ section.points {
 	width: $progress-bar-width;
 
 	div.progress-bar {
-		padding: 8px 14px 10px 14px;
+		padding: 8px 14px 25px 14px;
 		width: calc(100% - 28px);
 		background-color: #e4e9e9;
 		border-radius: 3px;
@@ -237,37 +257,57 @@ section.points {
 
 /* LEFT PANE */
 section.leftPane {
-	width: calc(#{$left-pane-width} + 20px);
+	width: $left-pane-width;
 	background-color: $theme-1;
 	box-shadow: 1px 1px 1px #fff inset,
-	            1px 1px 1px #bbb;
+	            1px 0px 1px #bbb;
 
 	div.pane-content {
-		padding: 20px 20px 8px 20px;
-		width: $left-pane-width;
-		min-height: 300px;
+		width: 100%;
 
-		h4 {
-			color: $text-2;
-		}
-		ul {
-			margin-top: 20px;
-			list-style: none;
+		div.pane-section {
+			padding: 15px;
+			height: 256.5px;
 
-			li {
-				margin-bottom: 5px;
-
-				a {
-					font-family: "Roboto-Light";
-					font-size: 14px;
+			h3.pane-section-title {
+				margin-bottom: 15px;
+				color: #777;
+			}
+			img.pane-section-image {
+				width: 50px;
+				height: 50px;
+				border-radius: 25px;
+			}
+			h4.pane-section-header {
+				display: inline-block;
+				line-height: 50px;
+				vertical-align: top;
+				color: $text-2;
+			}
+			ul.pane-section-options {
+				margin-top: 20px;
+				padding-left: 5px;
+				list-style: none;
+				
+				li {
+					margin-bottom: 5px;
 					color: desaturate(#44a3df, 40%);
-					text-decoration: none;
 
-					i {
-						margin-right: 10px;
+					a {
+						font-family: "Roboto-Light";
+						font-size: 14px;
+						color: desaturate(#44a3df, 40%);
+						text-decoration: none;
+
+						i {
+							margin-right: 10px;
+						}
 					}
 				}
 			}
+		}
+		div.pane-section:first-child {
+			border-bottom: 1px dotted #bbb;
 		}
 	}
 }
@@ -276,19 +316,14 @@ section.leftPane {
 /* MESSAGES */
 section.messages {
 	width: calc(100% - #{$left-pane-width} - 130px);
-	background-color: $theme-1;
-	border-radius: 3px;
-	box-shadow: 1px 1px 1px #fff inset,
-	            1px 1px 1px #bbb;
 
 	div.messages-content {
 		margin: 0 auto;
-		width: 90%;
-		height: 520px;
+		height: 495px;
 
 		ul.message-feed {
-			padding: 30px 0;
-			height: 380px;
+			padding: 30px 0 10px 0;
+			height: 455px;
 			overflow-y: scroll;
 			list-style: none;
 
@@ -298,19 +333,52 @@ section.messages {
 				font-size: 14px;
 				border-radius: 3px;
 
+				img.message-image {
+					width: 50px;
+					height: 50px;
+					border-radius: 25px;
+				}
 				h5.message-name {
-					margin-bottom: 7px;
+					width: 50px;
+					height: 50px;
+					margin-top: 5px;
 					font-family: "Roboto-Light";
 					font-size: 14px !important;
 					color: #888;
 				}
 				p.message-body {
-					line-height: 21px;
+					display: inline-block;
+					width: calc(100% - 150px);
+					line-height: 19px;
 					color: #444;
 				}
 			}
+			li.message.user {
+
+				div.message-sender {
+					float: right;
+					margin-left: 20px;
+
+					h5.message-name {
+						float: left;
+						margin-right: 8px;
+					}
+				}
+			}
+			li.message.other {
+
+				div.message-sender {
+					float: left;
+					margin-right: 20px;
+
+					h5.message-name {
+						float: right;
+						margin-left: 8px;
+					}
+				}
+			}
 			li.message:last-child {
-				margin-bottom: none;
+				margin-bottom: 0;
 			}
 			li.message.user {
 				float: right;
@@ -321,7 +389,7 @@ section.messages {
 			li.message.other {
 				float: left;
 				background-color: #e9e9e9;
-				border: 1px solid lighten(#e9e9e9, 5%);
+				border: 1px solid lighten(#e9e9e9, 2%);
 			}
 		}
 		ul::-webkit-scrollbar {
@@ -339,8 +407,8 @@ section.messages {
 				height: 40px;
 				font-size: 14px;
 				border: none;
-				box-shadow: 1px 1px 1px #ddd inset,
-				            1px 1px 1px #fff;
+				// box-shadow: 1px 1px 1px #ddd inset,
+				//             1px 1px 1px #fff;
 				outline: none;
 			}
 		input#message-submit {
@@ -366,8 +434,17 @@ footer {
 	background: -o-linear-gradient($theme-3, $theme-1);
 	background: -moz-linear-gradient($theme-3, $theme-1);
 	background: linear-gradient($theme-3, $theme-1);
+	box-shadow: 1px 1px 1px #fff inset,
+	            1px 1px 1px #bbb;
 
 	nav {
+		margin: 0 auto;
 		width: $footer-inner;
+		overflow: auto;
+
+		span {
+			font-size: 12px;
+			color: #999;
+		}
 	}
 }
