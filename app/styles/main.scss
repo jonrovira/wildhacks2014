@@ -73,13 +73,12 @@ header {
 		width: $header-inner;
 		overflow: auto;
 
-		h3.header-banner {
+		a.header-banner {
 			float: left;
-			padding-top: 3px;
+			padding-top: 1px;
 
-			a {
-				text-decoration: none;
-				color: $text-2;
+			img {
+				width: 120px;
 			}
 		}
 		ul {
@@ -122,6 +121,9 @@ main {
 		padding-top: 170px;
 	}
 	section.create-profile {
+		padding-top: 70px;
+	}
+	section.leaderboard {
 		padding-top: 70px;
 	}
 }
@@ -188,16 +190,146 @@ section.login {
 /* CREATE PROFILE */
 section.create-profile {
 	margin: 0 auto;
-	width: 800px;
+	width: 600px;
 
 	div.create-profile-form {
 		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 1px 1px 1px #ddd inset;
 
-		div.business-items {
-			padding: 20px;
+		h2 {
+			padding: 10px;
+			color: #666;
 		}
-		div.informal {
-			padding: 20px;
+		form {
+			input[type="text"], input[type="password"], textarea {
+				margin-right: 28px;
+				margin-bottom: 15px;
+				padding: 5px;
+				width: 155px;
+				font-size: 14px;
+				border: 1px solid #eee;
+				border-radius: 3px;
+			}
+			input + input {
+				margin-right: 0 !important;
+			}
+
+			div.business-items {
+				padding: 20px 40px;
+				height: 180px;
+				border-bottom: 1px dotted #bbb;
+
+				div.image-container {
+					display: inline-block;
+					width: 120px;
+					height: 120px;
+					text-align: center;
+					background-color: #444;
+					border-radius: 3px;
+
+					i {
+						line-height: 120px;
+						font-size: 35px;
+						color: #ddd;
+					}
+				}
+				div.business-item-inputs {
+					display: inline-block;
+					padding: 0 0 0 20px;
+					width: calc(100% - 130px - 20px);
+					height: 120px;
+					vertical-align: top;
+				}
+			}
+			div.informal {
+				padding: 20px 40px;
+
+				div.favorites {
+					display: inline-block;
+					width: 200px;
+					vertical-align: top;
+				}
+				div.shortResponse {
+					display: inline-block;
+					width: calc(100% - 220px);
+
+					textarea {
+						width: 100%;
+						min-height: 50px;
+					}
+				}
+			}
+		}
+	}
+}
+
+
+/* LEADERBOARD */
+section.leaderboard {
+	margin: 0 auto;
+	width: 1000px;
+
+	div.leaderboard-contents {
+		background-color: #fff;
+		border-radius: 3px;
+		box-shadow: 1px 1px 1px #ddd inset;
+
+		h2 {
+			padding: 10px;
+			color: #666;
+		}
+		ul.table-headers {
+			list-style: none;
+
+			li {
+				display: inline-block;
+				padding: 0 0 10px 0;
+				text-align: center;
+				font-weight: bold;
+			}
+			li:nth-child(1) {
+				width: 116px;
+			}
+			li:nth-child(2) {
+				width: 342px;
+			}
+			li:nth-child(3) {
+				width: 167px;
+			}
+			li:nth-child(4) {
+				width: 200px;
+			}
+			li:nth-child(5) {
+				width: 156px;
+			}
+		}
+		div.table {
+			height: 510px;
+			overflow-y: scroll;
+
+			table {
+				margin: -20px auto 0 auto;
+				width: 982px;
+				border-collapse: collapse;
+
+				th {
+					visibility: hidden;
+				}
+				td {
+					padding: 8px;
+					text-align: center;
+					font-size: 14px;
+					color: #777;
+				    border: 1px solid #ccc;
+				}
+				td:first-child {
+					color: #BA6354;
+				}
+			}
+		}
+		div.table::-webkit-scrollbar {
+			width: 0px;
 		}
 	}
 }
@@ -315,7 +447,7 @@ section.leftPane {
 
 /* MESSAGES */
 section.messages {
-	width: calc(100% - #{$left-pane-width} - 130px);
+	width: calc(100% - #{$left-pane-width} - 140px);
 
 	div.messages-content {
 		margin: 0 auto;
@@ -328,7 +460,7 @@ section.messages {
 			list-style: none;
 
 			li.message {
-				margin-bottom: 20px;
+				margin-bottom: 30px;
 				padding: 12px;
 				font-size: 14px;
 				border-radius: 3px;
@@ -349,8 +481,8 @@ section.messages {
 				p.message-body {
 					display: inline-block;
 					width: calc(100% - 150px);
-					line-height: 19px;
-					color: #444;
+					line-height: 21px;
+					color: #555;
 				}
 			}
 			li.message.user {
@@ -407,8 +539,6 @@ section.messages {
 				height: 40px;
 				font-size: 14px;
 				border: none;
-				// box-shadow: 1px 1px 1px #ddd inset,
-				//             1px 1px 1px #fff;
 				outline: none;
 			}
 		input#message-submit {

@@ -1,24 +1,37 @@
 <section class="create-profile">
 	<div class="create-profile-form">
-		<h2>Sign In</h2>
-		<form ng-submit="submit()">
+
+		<h2>Create a Profile</h2>
+		<form>
+
 			<div class="business-items">
-				<img src=""/>
-				<input id="picture" ng-model="picture" name="picture" type="file" />
-				<input id="firstName" ng-model="firstName" name="firstName" type="text" placeholder="First Name" />
-				<input id="lastName" ng-model="lastName" name="lastName" type="text" placeholder="Last Name" />
-				<input id="email" ng-model="email" name="email" type="text" placeholder="Email address" />
-				<input id="password" ng-model="password" name="password" type="password" placeholder="Password" />
-				<input id="city" ng-model="city" name="city" type="text" placeholder="City" />
-				<input id="state" ng-model="state" name="state" type="text" placeholder="State" />
-				<input id="school" ng-model="school" name="school" type="text" placeholder="School you attend" />
-				<input id="year" ng-model="year" name="year" type="text" placeholder="Year in school" />
+				<div class="image-container"><i class="fa fa-plus"></i></div>
+				<div class="business-item-inputs">
+					<input id="email" ng-model="email" name="email" type="text" placeholder="Email address" />
+					<input id="password" ng-model="password" name="password" type="password" placeholder="Password" />
+					<br>
+					<input id="firstName" ng-model="firstName" name="firstName" type="text" placeholder="First Name" />
+					<input id="lastName" ng-model="lastName" name="lastName" type="text" placeholder="Last Name" />
+					<br>
+					<input id="city" ng-model="city" name="city" type="text" placeholder="City" />
+					<input id="state" ng-model="state" name="state" type="text" placeholder="State" />
+					<br>
+					<input id="school" ng-model="school" name="school" type="text" placeholder="School you attend" />
+					<input id="year" ng-model="year" name="year" type="text" placeholder="Year in school" />
+				</div>
 			</div>
 			<div class="informal">
-				<input id="favSubject" ng-model="favSubject" name="fav-subject" type="text" placeholder="Favorite Subject"/>
-				<input id="major" ng-model="major" name="major" type="text" placeholder="Major" />
-				<input id="favSport" ng-model="favSport" name="favSport" type="text" placeholder="Favorite Sport" />
-				<textarea id="freeTime" ng-model="freeTime" name="freeTime" placeholder="What you do in your free time"></textarea>
+
+				<div class="favorites">
+					<input id="favSubject" ng-model="favSubject" name="fav-subject" type="text" placeholder="Favorite Subject"/>
+					<input id="favSport" ng-model="favSport" name="favSport" type="text" placeholder="Favorite Sport" />
+					<input id="favPlace" ng-model="favPlace" name="favPlace" type="text" placeholder="Favorite place" />
+				</div>
+				<div class="shortResponse">
+					<textarea id="freeTime" ng-model="freeTime" name="freeTime" placeholder="What you do in your free time?"></textarea>
+					<textarea id="whatYouWant" ng-model="whatYouWant" name="whatYouWant" placeholder="What do you want out of Sensei?"></textarea>
+				</div>
+
 			</div>
 			<input name="submit" type="submit" value="Sign Up" />
 		</form>
