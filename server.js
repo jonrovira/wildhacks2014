@@ -25,7 +25,6 @@ var db = require('./config/database');
 var port = process.env.PORT || 8080; 
 
 // connect to our mongoDB database 
-// (uncomment after you enter in your own credentials in config/db.js)
 mongoose.connect(db.url);
 
 app.use('/api', expressJwt({secret: 'nevilandjon'}));
