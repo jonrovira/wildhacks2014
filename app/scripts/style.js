@@ -1,5 +1,6 @@
 /* Functions */
 var setDimensions = function() {
+
 	var hWindow = $(window).height();
 	var hHeader = $('header').height();
 	var hFooter = $('footer').height();
@@ -16,5 +17,8 @@ var setDimensions = function() {
 $(document).ready(function() {
 
 	setDimensions();
+	$(window).resize(function() {
+		setDimensions();
+	});
 
 });
