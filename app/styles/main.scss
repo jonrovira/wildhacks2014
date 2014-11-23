@@ -294,7 +294,7 @@ section.leftPane {
 
 /* MESSAGES */
 section.messages {
-	width: calc(100% - #{$left-pane-width} - 100px);
+	width: calc(100% - #{$left-pane-width} - 130px);
 
 	div.messages-content {
 		margin: 0 auto;
