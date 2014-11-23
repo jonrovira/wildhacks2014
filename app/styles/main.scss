@@ -191,7 +191,6 @@ section.dashboard {
 	}
 	section.leftPane {
 		float: left;
-		margin-top: 40px;
 	}
 	section.messages {
 		float: right;
@@ -237,37 +236,58 @@ section.points {
 
 /* LEFT PANE */
 section.leftPane {
-	width: calc(#{$left-pane-width} + 20px);
+	width: $left-pane-width;
 	background-color: $theme-1;
 	box-shadow: 1px 1px 1px #fff inset,
 	            1px 1px 1px #bbb;
 
 	div.pane-content {
-		padding: 20px 20px 8px 20px;
-		width: $left-pane-width;
+		width: 100%;
 		min-height: 300px;
 
-		h4 {
-			color: $text-2;
-		}
-		ul {
-			margin-top: 20px;
-			list-style: none;
+		div.pane-section {
+			padding: 15px;
+			height: 265.5px;
 
-			li {
-				margin-bottom: 5px;
-
-				a {
-					font-family: "Roboto-Light";
-					font-size: 14px;
+			h3.pane-section-title {
+				margin-bottom: 15px;
+				color: #777;
+			}
+			img.pane-section-image {
+				width: 50px;
+				height: 50px;
+				border-radius: 25px;
+			}
+			h4.pane-section-header {
+				display: inline-block;
+				line-height: 50px;
+				vertical-align: top;
+				color: $text-2;
+			}
+			ul.pane-section-options {
+				margin-top: 20px;
+				padding-left: 5px;
+				list-style: none;
+				
+				li {
+					margin-bottom: 5px;
 					color: desaturate(#44a3df, 40%);
-					text-decoration: none;
 
-					i {
-						margin-right: 10px;
+					a {
+						font-family: "Roboto-Light";
+						font-size: 14px;
+						color: desaturate(#44a3df, 40%);
+						text-decoration: none;
+
+						i {
+							margin-right: 10px;
+						}
 					}
 				}
 			}
+		}
+		div.pane-section:first-child {
+			border-bottom: 1px dotted #bbb;
 		}
 	}
 }
@@ -366,8 +386,17 @@ footer {
 	background: -o-linear-gradient($theme-3, $theme-1);
 	background: -moz-linear-gradient($theme-3, $theme-1);
 	background: linear-gradient($theme-3, $theme-1);
+	box-shadow: 1px 1px 1px #fff inset,
+	            1px 1px 1px #bbb;
 
 	nav {
+		margin: 0 auto;
 		width: $footer-inner;
+		overflow: auto;
+
+		span {
+			font-size: 12px;
+			color: #999;
+		}
 	}
 }
