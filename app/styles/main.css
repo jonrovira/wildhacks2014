@@ -1,0 +1,144 @@
+/* FONTS */
+@font-face {
+  font-family: 'Roboto-Thin';
+  src: url("./fonts/Roboto/Roboto-Thin.ttf");
+  font-weight: lighter;
+  font-style: normal; }
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url("./fonts/Roboto/Roboto-Light.ttf");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Roboto-Condensed-Light';
+  src: url("./fonts/Roboto/RobotoCondensed-Light.ttf");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Roboto-Italic';
+  src: url("./fonts/Roboto/Roboto-Italic.ttf");
+  font-weight: normal;
+  font-style: normal; }
+@font-face {
+  font-family: 'Roboto-Medium';
+  src: url("./fonts/Roboto/Roboto-Medium.ttf");
+  font-weight: normal;
+  font-style: normal; }
+/* SASS VARIABLES */
+/* GLOBAL STYLES */
+html, body, div, span, h1, h2, h3, h4,
+h5, h6, p, a, img, i, ol, ul, li, form,
+label, table, caption {
+  margin: 0;
+  padding: 0; }
+
+html {
+  font-family: Roboto-Thin, Arial, Helvetica, sans-serif; }
+
+/* HEADER */
+header {
+  width: 100%;
+  background-color: #FBF6F3; }
+  header nav {
+    margin: 0 auto;
+    padding: 10px 0;
+    width: 90%;
+    overflow: auto; }
+    header nav h3.header-banner {
+      float: left;
+      padding-top: 3px; }
+      header nav h3.header-banner a {
+        text-decoration: none;
+        color: #888; }
+    header nav ul {
+      float: right;
+      list-style: none; }
+      header nav ul li {
+        display: inline-block;
+        margin-left: 20px;
+        cursor: pointer; }
+        header nav ul li a {
+          font-size: 15px;
+          color: #888;
+          text-decoration: none; }
+      header nav ul li.logInOut {
+        padding: 1px 4px 4px 4px;
+        border: 1px solid #bbbbbb;
+        border-radius: 3px; }
+
+/* MAIN */
+main {
+  width: 100%;
+  background-color: #eff3f3; }
+  main section.login {
+    padding-top: 200px; }
+
+/* LOGIN */
+section.login div.login-form {
+  margin: 0 auto;
+  width: 300px;
+  text-align: center; }
+  section.login div.login-form h2 {
+    margin: 0 auto; }
+  section.login div.login-form form {
+    margin-top: 20px; }
+    section.login div.login-form form input {
+      margin: 0 auto;
+      display: block;
+      outline: none; }
+
+/* DASHBOARD */
+section.dashboard section.leftPane {
+  float: left;
+  margin-top: 10px; }
+section.dashboard section.points {
+  margin: 0 auto;
+  padding-top: 20px; }
+
+/* POINTS */
+section.points {
+  width: calc(600px + 20px); }
+  section.points div.progress-bar {
+    padding: 8px;
+    width: 600px;
+    background-color: #e4e9e9;
+    border-radius: 3px;
+    box-shadow: 1px 1px 1px #bbb inset, 1px 1px 1px #fff; }
+    section.points div.progress-bar div.progress {
+      width: calc(600px - 100px);
+      height: 20px;
+      background-color: #44a3df;
+      border-radius: 3px; }
+
+/* LEFT PANE */
+section.leftPane {
+  width: calc(200px + 20px);
+  background-color: #FBF6F3;
+  box-shadow: 1px 1px 1px #fff inset, 1px 1px 1px #bbb; }
+  section.leftPane div.pane-content {
+    padding: 20px 20px 8px 20px;
+    width: 200px;
+    min-height: 300px; }
+    section.leftPane div.pane-content h4 {
+      color: #888; }
+    section.leftPane div.pane-content ul {
+      margin-top: 20px;
+      list-style: none; }
+      section.leftPane div.pane-content ul li {
+        margin-bottom: 5px; }
+        section.leftPane div.pane-content ul li a {
+          font-family: "Roboto-Light";
+          color: #70b8e6;
+          text-decoration: none; }
+          section.leftPane div.pane-content ul li a i {
+            margin-right: 10px; }
+
+/* FOOTER */
+footer {
+  width: 100%;
+  height: 30px;
+  background-color: #FBF6F3; }
+  footer nav {
+    width: 90%; }
+
+/*# sourceMappingURL=main.css.map */

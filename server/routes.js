@@ -6,7 +6,7 @@ var User = require('./models/User'),
 	Message = require('./models/Message'),
 	Relationship = require('./models/Relationship');
 
-module.exports = function(app, passport) {
+module.exports = function(app) {
 
 	// handle Angular frontend routes
 	app.get('*', function(req, res) {
