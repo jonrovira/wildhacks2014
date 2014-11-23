@@ -121,6 +121,9 @@ main {
 	section.login {
 		padding-top: 170px;
 	}
+	section.create-profile {
+		padding-top: 70px;
+	}
 }
 
 
@@ -177,6 +180,24 @@ section.login {
 				color: #333;
 				cursor: pointer;
 			}
+		}
+	}
+}
+
+
+/* CREATE PROFILE */
+section.create-profile {
+	margin: 0 auto;
+	width: 800px;
+
+	div.create-profile-form {
+		background-color: #fff;
+
+		div.business-items {
+			padding: 20px;
+		}
+		div.informal {
+			padding: 20px;
 		}
 	}
 }
