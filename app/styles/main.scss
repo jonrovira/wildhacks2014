@@ -194,7 +194,7 @@ section.dashboard {
 	}
 	section.messages {
 		float: right;
-		margin-top: 40px;
+		// margin-top: 40px;
 		margin-right: 70px;
 	}
 }
@@ -243,7 +243,6 @@ section.leftPane {
 
 	div.pane-content {
 		width: 100%;
-		min-height: 300px;
 
 		div.pane-section {
 			padding: 15px;
@@ -303,7 +302,7 @@ section.messages {
 
 		ul.message-feed {
 			padding: 30px 0 10px 0;
-			height: 410px;
+			height: 460px;
 			overflow-y: scroll;
 			list-style: none;
 
