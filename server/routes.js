@@ -4,53 +4,41 @@
 
 var User = require('./models/User'),
 	Message = require('./models/Message'),
-	Relationship = require('./models/Relationship');
+	Relationship = require('./models/Relationship'),
+	jwt = require('jsonwebtoken');
 
 module.exports = function(app) {
 
-	// handle Angular frontend routes
-	app.get('*', function(req, res) {
-		// load public index file
-		res.sendfile('./app/index.html');
-	});
-
 	/* AUTHENTICATION */
 
-	// Mentors
-	// app.post('/api/mentor/signup', function(req, res) {
-	// 	console.log('Backend reached');
-	// 	console.log(req.body)
-	// 	var email = req.body.email,
-	// 		password = req.body.password;
+	app.post('/signup', function(req, res) {
+		// Validate req.body
+		if (!req.body) {
+			return res.send(401, 'Please enter username and password!');
+		}
 
-	// 	if (!email || !password) {
-	// 		res.send('You must enter an email and a password!');
-	// 	}
+		// Check if user already exists in database by searching for email
+		User.findOne({ 'email': email }, function(err, user) {
+			if (err) {
+				return res.send(500, err);
+			}
+			if (!user) {
+				var newUser = new User();
+				newUser.email = req.body.email;
+				newUser.password = req.body.password;
+				newUser.save(function(err) {
+					if (err) {
+						return res.send(400, err);
+					}
+					var token = jwt.sign(newUser, 'nevilandjon', {expiresInMinutes: 300});
+					console.log('Sending token to frontend...');
+					res.json({ token: token });
+				});
+			}
+		});
+	});
 
-	// 	Mentor.findOne({ 'email': email }, function(err, user) {
-	// 		if (err) {
-	// 			return done(err);
-	// 		}
-
-	// 		if (user) {
-	// 			return res.send('A user with that username already exists!')
-	// 		}
-	// 	});
-
-	// 	var newMentor = new Mentor();
-	// 	newMentor.email = email;
-	// 	newMentor.password = password;
-	// 	newMentor.save(function(err) {
-	// 		if (err) {
-	// 			throw err;
-	// 		} else {
-	// 			console.log('Sending user to frontend');
-	// 			return res.send(newMentor);
-	// 		}
-	// 	});
-	// });
-
-	// REST API
+	/* REST API */
 
 	/* Messages */
 	// get all messages
@@ -228,6 +216,13 @@ module.exports = function(app) {
 				res.json(rel);
 			});
 		});
+	});
+
+	// all other routes will go to this route, hence placed last
+	// handle Angular frontend routes
+	app.get('*', function(req, res) {
+		// load public index file
+		res.sendfile('./app/index.html');
 	});
 
 }

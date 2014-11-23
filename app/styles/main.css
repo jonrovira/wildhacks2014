@@ -38,7 +38,10 @@ html {
 /* HEADER */
 header {
   width: 100%;
-  background-color: #FBF6F3; }
+  background: -webkit-linear-gradient(#FBF6F3, #eff3f3);
+  background: -o-linear-gradient(#FBF6F3, #eff3f3);
+  background: -moz-linear-gradient(#FBF6F3, #eff3f3);
+  background: linear-gradient(#FBF6F3, #eff3f3); }
   header nav {
     margin: 0 auto;
     padding: 10px 0;
@@ -69,45 +72,89 @@ header {
 /* MAIN */
 main {
   width: 100%;
-  background-color: #eff3f3; }
+  background: -webkit-linear-gradient(#eff3f3, #DADEDE);
+  background: -o-linear-gradient(#eff3f3, #DADEDE);
+  background: -moz-linear-gradient(#eff3f3, #DADEDE);
+  background: linear-gradient(#eff3f3, #DADEDE); }
   main section.login {
-    padding-top: 200px; }
+    padding-top: 170px; }
 
 /* LOGIN */
 section.login div.login-form {
   margin: 0 auto;
-  width: 300px;
-  text-align: center; }
+  padding: 40px;
+  width: 220px;
+  height: 220px;
+  text-align: center;
+  background-color: #e4e9e9;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px #ccc inset, 1px 1px 1px #fff; }
   section.login div.login-form h2 {
-    margin: 0 auto; }
+    margin: 0 auto;
+    font-family: "Roboto-Thin";
+    font-size: 30px;
+    color: #999; }
   section.login div.login-form form {
-    margin-top: 20px; }
+    margin-top: 30px; }
     section.login div.login-form form input {
-      margin: 0 auto;
       display: block;
+      margin: 0 auto 10px auto;
+      padding: 5px 10px;
+      width: 200px;
+      height: 20px;
+      text-align: center;
+      font-size: 14px;
+      border: none;
+      border-radius: 3px;
+      box-shadow: 1px 1px 1px #bbb inset, 1px 1px 1px #fff;
       outline: none; }
+    section.login div.login-form form input#submit {
+      width: 220px;
+      height: 30px;
+      color: #fff;
+      background-color: #6A89BA;
+      box-shadow: 1px 1px 1px #fff inset, 1px 1px 1px #ccc; }
+  section.login div.login-form a {
+    text-decoration: none; }
+    section.login div.login-form a span.new-account {
+      color: #333;
+      cursor: pointer; }
 
 /* DASHBOARD */
-section.dashboard section.leftPane {
-  float: left;
-  margin-top: 10px; }
 section.dashboard section.points {
   margin: 0 auto;
-  padding-top: 20px; }
+  padding-top: 10px; }
+section.dashboard section.leftPane {
+  float: left;
+  margin-top: 40px; }
+section.dashboard section.messages {
+  float: right;
+  margin-top: 40px;
+  margin-right: 70px; }
 
 /* POINTS */
 section.points {
-  width: calc(600px + 20px); }
+  width: 100%; }
   section.points div.progress-bar {
-    padding: 8px;
-    width: 600px;
+    padding: 8px 14px 10px 14px;
+    width: calc(100% - 28px);
     background-color: #e4e9e9;
     border-radius: 3px;
-    box-shadow: 1px 1px 1px #bbb inset, 1px 1px 1px #fff; }
+    box-shadow: 1px 1px 1px #ccc inset, 1px 1px 1px #fff; }
+    section.points div.progress-bar h3 {
+      float: left;
+      margin-bottom: 7px;
+      font-size: 13px;
+      color: #888; }
+    section.points div.progress-bar h5 {
+      float: right;
+      font-size: 13px;
+      color: #777; }
     section.points div.progress-bar div.progress {
-      width: calc(600px - 100px);
+      clear: both;
+      width: calc(100% - 200px);
       height: 20px;
-      background-color: #44a3df;
+      background-color: #6A89BA;
       border-radius: 3px; }
 
 /* LEFT PANE */
@@ -128,16 +175,84 @@ section.leftPane {
         margin-bottom: 5px; }
         section.leftPane div.pane-content ul li a {
           font-family: "Roboto-Light";
-          color: #70b8e6;
+          font-size: 14px;
+          color: #7099b3;
           text-decoration: none; }
           section.leftPane div.pane-content ul li a i {
             margin-right: 10px; }
+
+/* MESSAGES */
+section.messages {
+  width: calc(100% - 200px - 130px);
+  background-color: #FBF6F3;
+  border-radius: 3px;
+  box-shadow: 1px 1px 1px #fff inset, 1px 1px 1px #bbb; }
+  section.messages div.messages-content {
+    margin: 0 auto;
+    width: 90%;
+    height: 520px; }
+    section.messages div.messages-content ul.message-feed {
+      padding: 30px 0;
+      height: 380px;
+      overflow-y: scroll;
+      list-style: none; }
+      section.messages div.messages-content ul.message-feed li.message {
+        margin-bottom: 20px;
+        padding: 12px;
+        font-size: 14px;
+        border-radius: 3px; }
+        section.messages div.messages-content ul.message-feed li.message h5.message-name {
+          margin-bottom: 7px;
+          font-family: "Roboto-Light";
+          font-size: 14px !important;
+          color: #888; }
+        section.messages div.messages-content ul.message-feed li.message p.message-body {
+          line-height: 21px;
+          color: #444; }
+      section.messages div.messages-content ul.message-feed li.message:last-child {
+        margin-bottom: none; }
+      section.messages div.messages-content ul.message-feed li.message.user {
+        float: right;
+        text-align: right;
+        background-color: #eff3f3;
+        border: 1px solid #f5f7f7; }
+      section.messages div.messages-content ul.message-feed li.message.other {
+        float: left;
+        background-color: #e9e9e9;
+        border: 1px solid #f6f6f6; }
+    section.messages div.messages-content ul::-webkit-scrollbar {
+      width: 0px; }
+    section.messages div.messages-content form {
+      margin: 5px 0 0 0;
+      padding: 0; }
+      section.messages div.messages-content form input#message-input {
+        float: left;
+        display: block;
+        padding: 5px 10px;
+        width: calc(100% - 20px - 85px);
+        height: 40px;
+        font-size: 14px;
+        border: none;
+        box-shadow: 1px 1px 1px #ddd inset, 1px 1px 1px #fff;
+        outline: none; }
+      section.messages div.messages-content form input#message-submit {
+        display: block;
+        float: left;
+        padding: 5px 10px;
+        width: 80px;
+        height: 50px;
+        color: #fff;
+        background-color: #6A89BA;
+        border: none; }
 
 /* FOOTER */
 footer {
   width: 100%;
   height: 30px;
-  background-color: #FBF6F3; }
+  background: -webkit-linear-gradient(#DADEDE, #FBF6F3);
+  background: -o-linear-gradient(#DADEDE, #FBF6F3);
+  background: -moz-linear-gradient(#DADEDE, #FBF6F3);
+  background: linear-gradient(#DADEDE, #FBF6F3); }
   footer nav {
     width: 90%; }
 
