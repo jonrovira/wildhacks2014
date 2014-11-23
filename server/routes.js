@@ -2,8 +2,7 @@
 
 // include all modules
 
-var Mentor = require('./models/Mentor'),
-	Mentee = require('./models/Mentee'),
+var User = require('./models/User'),
 	Message = require('./models/Message'),
 	Relationship = require('./models/Relationship');
 
@@ -189,6 +188,8 @@ module.exports = function(app, passport) {
 			rel.mentee = req.user.name;
 			rel.menteeID = req.user._id;
 		}
+		// rel.mentor = req.body.mentor;
+		// rel.mentee = req.body.mentee;
 		rel.messages = []
 
 		rel.save(function(err, rel) {
