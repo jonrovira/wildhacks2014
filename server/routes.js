@@ -4,9 +4,15 @@
 
 var User = require('./models/User'),
 	Message = require('./models/Message'),
-	Relationship = require('./models/Relationship');
+	Relationship = require('./models/Relationship'),
+	jwt = require('jsonwebtoken');
 
 module.exports = function(app) {
+
+	app.get('/api/restrict', function(req, res) {
+		console.log('You\'re calling restricted routes!');
+		res.json({text: 'Nevil George is accessing this'});
+	});
 
 	// handle Angular frontend routes
 	app.get('*', function(req, res) {
@@ -49,6 +55,32 @@ module.exports = function(app) {
 	// 		}
 	// 	});
 	// });
+
+	
+
+	app.post('/authenticate', function(req, res) {
+		console.log('backend reached');
+		if (!req.body) {
+			return res.send(404, 'No email or password entered.');
+		}
+		User.findOne({'email': req.body.email}, function(err, user) {
+			if (err) {
+				return res.send(500, err);
+			}
+			var newUser = new User();
+			newUser.email = req.body.email;
+			newUser.password = req.body.password;
+			newUser.save(function(err) {
+				if (err) {
+					return res.send(400, err);
+				}
+				var token = jwt.sign(newUser, 'nevilandjon', {expiresInMinutes: 300});
+				console.log('Sending token');
+				res.json({token: token});
+			});
+			
+		});
+	});
 
 	// REST API
 

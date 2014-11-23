@@ -16,12 +16,14 @@ var app = angular
         'ngResource',
         'ngRoute',
         'ngSanitize',
-        'ngTouch'
+        'ngTouch',
+	'LocalStorageModule'
     ])
     .config(function ($routeProvider) {
         $routeProvider
             .when('/', {
                 templateUrl: 'views/login.html',
+		controller: 'MainCtrl'
             })
             .when('/dashboard', {
                 templateUrl: 'views/dashboard.html',

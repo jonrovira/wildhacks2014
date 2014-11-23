@@ -9,12 +9,16 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var cookieParser = require('cookie-parser');
 var flash = require('connect-flash');
+var expressJwt = require('express-jwt');
+var jwt = require('jsonwebtoken');
 //var session = require('express-session');
 
 // configuration ===========================================
     
 // config files
 var db = require('./config/database');
+
+app.use('/api', expressJwt({ secret: 'nevilandjon'}));
 
 // pass in the passport to create authentication strategies
 //require('./server/passport.js')(passport);

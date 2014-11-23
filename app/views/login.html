@@ -1,9 +1,10 @@
 <section class="login">
 	<div class="login-form">
 		<h2>Log In</h2>
-		<form>
-			<input id="user" name="user" type="text" />
-			<input id="pass" name="pass" type="password" />
+		<form ng-submit="login()">
+			<input id="user" name="user" ng-model="email" type="text" />
+			<input id="pass" name="pass" ng-model="password" type="password" />
+			<input id="submit" name="submit" type="submit" value="Sign in" />
 		</form>
 	</div>
 </section>
