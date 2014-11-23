@@ -36,15 +36,20 @@ angular.module('wildhacks2014App')
         };
 
         // send post request to add message to database
-        var postedMsg;
         $http.post('/api/messages', msg).success(function(data, status, headers, config) {
           console.log('Message POSTed');
+          console.log('Message:');
           console.log(data);
-          postedMsg = data;
+
+          // send put request to add message id to relationship
+          // Should work, but need to check with valid relationshipID
+          // $http.put('/api/relationships/' + profile.relationshipID, data._id).success(function(data, status) {
+          //   console.log('Message added to relationship!');
+          //   console.log('Relationship:');
+          //   console.log(data);
+          // });
         });
-
-        // send put request to add message id to relationship
-
+        
       };
 
   }]);

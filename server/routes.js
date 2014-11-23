@@ -70,6 +70,24 @@ module.exports = function(app) {
 				newUser.major = req.body.major;
 				newUser.favSport = req.body.favSport;
 				newUser.hobby = req.body.hobby;
+
+				var relationship = new Relationship();
+				if (req.body.mentor) {
+					relationship.mentor = req.body.firstName + ' ' + req.body.lastName;
+				} else {
+					relationship.mentee = req.body.firstName + ' ' + req.body.lastName;
+				}
+
+				var relationshipID;
+				relationship.save(function(err) {
+					if (err) {
+						return res.send(400, err);
+					}
+					relationshipID = relationship._id;
+				});
+				// add relationshipID to the newUser instance
+				newUser.relationshipID = relationshipID;
+
 				// save new object to database
 				newUser.save(function(err) {
 					if (err) {
@@ -238,7 +256,7 @@ module.exports = function(app) {
 	// add a message to the relationship
 	app.put('/api/relationships/:id', function(req, res) {
 		var id = req.params.id;
-
+		console.log(req.body);
 		if (!req.body) {
 			return res.send(400);
 		}
