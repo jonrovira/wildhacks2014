@@ -5,7 +5,8 @@ var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
 	mentor: Boolean,
-	name: String,
+	firstName: String,
+	lastName: String,
 	email: String,
 	menteeID: mongoose.Schema.ObjectId,
 	mentorID: mongoose.Schema.ObjectId,
@@ -18,7 +19,7 @@ var userSchema = new mongoose.Schema({
 	city: String,
 	state: String,
 	picture: String,
-	description: [String]
+	hobby: String
 });
 
 module.exports = mongoose.model('User', userSchema);

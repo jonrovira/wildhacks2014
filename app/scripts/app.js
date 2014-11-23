@@ -16,7 +16,8 @@ var app = angular
         'ngResource',
         'ngRoute',
         'ngSanitize',
-        'ngTouch'
+        'ngTouch',
+        'LocalStorageModule'
     ])
     .config(function ($routeProvider) {
         $routeProvider
@@ -28,6 +29,7 @@ var app = angular
             })
             .when('/new', {
                 templateUrl: 'views/createProfile.html',
+                controller: 'NewCtrl'
             })
             .otherwise({
                 redirectTo: '/'

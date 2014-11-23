@@ -16,16 +16,26 @@ module.exports = function(app) {
 		if (!req.body) {
 			return res.send(401, 'Please enter username and password!');
 		}
-
+		console.log(req.body);
 		// Check if user already exists in database by searching for email
-		User.findOne({ 'email': email }, function(err, user) {
+		User.findOne({ 'email': req.body.email }, function(err, user) {
 			if (err) {
 				return res.send(500, err);
 			}
 			if (!user) {
 				var newUser = new User();
+				newUser.firstName = req.body.firstName;
+				newUser.lastName = req.body.lastName;
 				newUser.email = req.body.email;
 				newUser.password = req.body.password;
+				newUser.city = req.body.city;
+				newUser.state = req.body.state;
+				newUser.school = req.body.school;
+				newUser.year = req.body.year;
+				newUser.favSubject = req.body.favSubject;
+				newUser.major = req.body.major;
+				newUser.favSport = req.body.favSport;
+				newUser.hobby = req.body.hobby;
 				newUser.save(function(err) {
 					if (err) {
 						return res.send(400, err);

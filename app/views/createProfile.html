@@ -1,7 +1,7 @@
 <section class="create-profile">
 	<div class="create-profile-form">
 		<h2>Sign In</h2>
-		<form>
+		<form ng-submit="submit()">
 			<div class="business-items">
 				<img src=""/>
 				<input id="picture" ng-model="picture" name="picture" type="file" />
@@ -17,8 +17,9 @@
 				<input id="favSubject" ng-model="favSubject" name="fav-subject" type="text" placeholder="Favorite Subject"/>
 				<input id="major" ng-model="major" name="major" type="text" placeholder="Major" />
 				<input id="favSport" ng-model="favSport" name="favSport" type="text" placeholder="Favorite Sport" />
-				<textarea id="freeTime" ng-model="freeTime" name="freeTime" placeholder="What you do in your free time" />
+				<textarea id="freeTime" ng-model="freeTime" name="freeTime" placeholder="What you do in your free time"></textarea>
 			</div>
+			<input name="submit" type="submit" value="Sign Up" />
 		</form>
 	</div>
 </section>
