@@ -17,7 +17,6 @@ module.exports = function(app) {
 		if (!req.body) {
 			return res.send(401, 'Please enter username and password!');
 		}
-		console.log(req.body);
 		User.findOne({ 'email': req.body.email }, function(err, user) {
 			// check if some error occurred during database retrieval
 			if (err) {
@@ -91,6 +90,7 @@ module.exports = function(app) {
 	/* Messages */
 	// get all messages
 	app.get('/api/messages', function(req, res) {
+		// req.user exists here
 		Message.find(function(err, messages) {
 			if (err) {
 				res.send(err);
@@ -120,14 +120,13 @@ module.exports = function(app) {
 		if (!req.body) {
 			return res.send(404);
 		}
-
+		console.log(req.body);
 		// instantiate new message with data from req.body and req.user
-		var newMessage = new Message({
-			text: req.body.text,
-			user: req.user.name,
-			userID: req.user._id,
-			time: Date.now()
-		});
+		var newMessage = new Message();
+		newMessage.text = req.body.text;
+		newMessage.user = req.body.user;
+		newMessage.userID = req.body.userID;
+		newMessage.time = req.body.time;
 
 		newMessage.save(function(err, msg) {
 			if (err) {

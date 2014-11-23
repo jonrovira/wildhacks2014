@@ -27,6 +27,7 @@ angular.module('wildhacks2014App')
             var profile = JSON.parse(url_base64_decode(encodedProfile));
             console.log(profile);
             console.log('Successfully signed up!');
+            $location.url('/dashboard');
           })
           .error(function(data, status, headers, config) {
             localStorageService.remove('token');

@@ -27,6 +27,7 @@ var port = process.env.PORT || 8080;
 // connect to our mongoDB database 
 mongoose.connect(db.url);
 
+// protect requests with the '/api' for only authorized users
 app.use('/api', expressJwt({secret: 'nevilandjon'}));
 
 // get all data/stuff of the body (POST) parameters

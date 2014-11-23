@@ -27,6 +27,7 @@ var app = angular
             })
             .when('/dashboard', {
                 templateUrl: 'views/dashboard.html',
+                controller: 'DashboardCtrl'
             })
             .when('/new', {
                 templateUrl: 'views/createProfile.html',
