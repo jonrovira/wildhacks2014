@@ -18,7 +18,8 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
-  .config(function ($routeProvider) {
+  .config(function ($routeProvider, $locationProvider, $httpProvider) {
+
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
