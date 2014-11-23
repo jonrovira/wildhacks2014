@@ -7,11 +7,17 @@ var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
 var mongoose = require('mongoose');
 var passport = require('passport');
+var cookieParser = require('cookie-parser');
+var flash = require('connect-flash');
+var session = require('express-session');
 
 // configuration ===========================================
     
 // config files
 var db = require('./config/database');
+
+// pass in the passport to create authentication strategies
+require('./server/passport.js')(passport);
 
 // set our port
 var port = process.env.PORT || 8080; 
@@ -39,12 +45,15 @@ app.use(express.static(__dirname + '/bower_components'));
 app.use(express.static(__dirname + '/dist'));
 app.use(passport.initialize());
 app.use(passport.session());
+app.use(cookieParser());
+app.use(session({ secret: 'nevilandjonmakeanapp'}));
+app.use(flash());
 
 // "bower_components" is the directory used in the index.html
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 // routes ==================================================
-require('./server/routes')(app); // configure our routes
+require('./server/routes')(app, passport); // configure our routes
 
 // start app ===============================================
 // startup our app at http://localhost:8080

@@ -1,14 +1,16 @@
-// Mentor.js
-// Data model for Mentor
+// User.js
+// Data model for both Mentor and Mentee
 
 var mongoose = require('mongoose');
 
-var mentorSchema = new mongoose.Schema({
+var userSchema = new mongoose.Schema({
+	mentor: Boolean,
 	name: String,
 	email: String,
-	mentee: String,
 	menteeID: mongoose.Schema.ObjectId,
+	mentorID: mongoose.Schema.ObjectId,
 	relationshipID: mongoose.Schema.ObjectId,
+	favSubject: String,
 	major: String,
 	favSport: String,
 	school: String,
@@ -17,7 +19,6 @@ var mentorSchema = new mongoose.Schema({
 	state: String,
 	picture: String,
 	description: [String]
-
 });
 
-module.exports = mongoose.model('Mentor', mentorSchema);
+module.exports = mongoose.model('User', userSchema);
