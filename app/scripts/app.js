@@ -26,6 +26,9 @@ var app = angular
             .when('/dashboard', {
                 templateUrl: 'views/dashboard.html',
             })
+            .when('/new', {
+                templateUrl: 'views/createProfile.html',
+            })
             .otherwise({
                 redirectTo: '/'
             });
