@@ -33,7 +33,16 @@ var app = angular
             .when('/dashboard', {
                 templateUrl: 'views/dashboard.html',
                 controller: 'DashboardCtrl',
-                access: access.user
+                //access: access.user
+                resolve: function($q, $location, $rootScope) {
+                    var deferred = $q.defer();
+                    deferred.resolve();
+                    console.log('Opening dashboard');
+                    if ($rootScope.user.role === 1) {
+                        $location.path('/');
+                    }
+                    return deferred.promise;
+                }
             })
             .when('/new', {
                 templateUrl: 'views/createProfile.html',
@@ -42,7 +51,21 @@ var app = angular
             })
             .when('/champs', {
                 templateUrl: 'views/leaderboard.html',
-                access: access.user
+                controller: 'ChampsCtrl',
+                resolve: {
+                    checkAuth: function($q, $location, $rootScope) {
+                        var deferred = $q.defer();
+                        deferred.resolve();
+                        console.log($rootScope.user);
+                        if ($rootScope.user === undefined || $rootScope.user.role === 1) {
+                            $location.path('/');
+                        }
+                        return deferred.promise;
+                    }
+                }
+
+                
+                //access: access.user
             })
             .otherwise({
                 redirectTo: '/'

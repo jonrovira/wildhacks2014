@@ -22,17 +22,19 @@ angular.module('wildhacks2014App')
           .success(function(data, status, headers, config) {
             // set token in browser storage
             localStorageService.set('token', data.token);
-            $scope.isAuthenticated = true;
+            // set a variable in $rootScope to acknowledge that user is authenticated
+            $rootScope.isAuthenticated = true;
             var encodedProfile = data.token.split('.')[1];
             var profile = JSON.parse(url_base64_decode(encodedProfile));
-            console.log(profile);
+            // set a property in the rootScope as user so that the user object is available everywhere in the frontend
             $rootScope.user = profile;
+            console.log($rootScope.user);
             console.log('Successfully logged in!');
-            $location.url('/dashboard');
+            $location.path('/dashboard');
           })
           .error(function(data, status, headers, config) {
             localStorageService.remove('token');
-            console.log('Sign up failed!');
+            alert('Sign up failed!');
           });
     };
   }]);

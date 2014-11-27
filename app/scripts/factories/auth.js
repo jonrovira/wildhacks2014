@@ -29,7 +29,7 @@ angular.module('wildhacks2014App').factory('Auth', function($http, $rootScope, $
 				$rootScope.user = { role: userRoles.public };
 			},
 
-			accessLevels: accessLevels;,
+			accessLevels: accessLevels,
 			userRoles: userRoles
 		};
 
