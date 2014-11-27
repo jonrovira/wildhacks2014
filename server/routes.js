@@ -288,12 +288,6 @@ module.exports = function(app) {
 	// all other routes will go to this route, hence placed last
 	// handle Angular frontend routes
 	app.get('*', function(req, res) {
-		var role = access.userRoles.public,
-			username = '';
-
-		if (req.user) {
-			res.cookie('user', req.user);
-		}
 		// load public index file
 		res.sendfile('./app/index.html');
 	});
