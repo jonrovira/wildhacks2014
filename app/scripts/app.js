@@ -20,21 +20,29 @@ var app = angular
         'LocalStorageModule'
     ])
     .config(function ($routeProvider) {
+
+        // grab accessLevels from the userRoles.js added to index.html
+        var access = routingConfig.accessLevels;
+
         $routeProvider
             .when('/', {
                 templateUrl: 'views/login.html',
-                controller: 'LoginCtrl'
+                controller: 'LoginCtrl',
+                access: access.anon
             })
             .when('/dashboard', {
                 templateUrl: 'views/dashboard.html',
-                controller: 'DashboardCtrl'
+                controller: 'DashboardCtrl',
+                access: access.user
             })
             .when('/new', {
                 templateUrl: 'views/createProfile.html',
-                controller: 'NewCtrl'
+                controller: 'NewCtrl',
+                access: access.anon
             })
             .when('/champs', {
                 templateUrl: 'views/leaderboard.html',
+                access: access.user
             })
             .otherwise({
                 redirectTo: '/'
