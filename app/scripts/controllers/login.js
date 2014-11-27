@@ -30,6 +30,8 @@ angular.module('wildhacks2014App')
             $rootScope.user = profile;
             console.log($rootScope.user);
             console.log('Successfully logged in!');
+            // run the setLog() function defined in ctrl.js to update the nav bar login/logout button
+            $scope.setLog();
             $location.path('/dashboard');
           })
           .error(function(data, status, headers, config) {
