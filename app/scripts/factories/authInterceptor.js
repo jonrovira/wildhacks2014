@@ -5,6 +5,7 @@ angular.module('wildhacks2014App').factory('authInterceptor', function ($rootSco
     request: function (config) {
       config.headers = config.headers || {};
       if (localStorageService.get('token')) {
+        // add token to request header
         config.headers.Authorization = 'Bearer ' + localStorageService.get('token');
       }
       return config;

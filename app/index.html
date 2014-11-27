@@ -24,7 +24,7 @@
                         <li><a ng-href="#/champs/">Leaderboard</a></li>
                         <li><a ng-href="#/">About</a></li>
                         <li><a ng-href="#/">Community</a></li>
-                        <li class="logInOut" ng-show="loggedIn" ng-click="loggedIn = !loggedIn">Log Out</li>
+                        <li class="logInOut" ng-click="logout()" ng-show="loggedIn">Log Out</li>
                         <li class="logInOut" ng-show="!loggedIn" ng-click="loggedIn = !loggedIn">Log In</li>
                     </ul>
                 </nav>
@@ -54,6 +54,7 @@
         <script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
 
         <script src="scripts/userRoles.js"></script>
+        <script src="scripts/authChecker.js"></script>
         <script src="scripts/app.js"></script>
         <script src="scripts/factories/authInterceptor.js"></script>
         <script src="scripts/controllers/ctrl.js"></script>

@@ -5,7 +5,8 @@
 var User = require('./models/User'),
 	Message = require('./models/Message'),
 	Relationship = require('./models/Relationship'),
-	jwt = require('jsonwebtoken');
+	jwt = require('jsonwebtoken'),
+	access = require('../config/userRoles');
 
 module.exports = function(app) {
 
@@ -61,6 +62,7 @@ module.exports = function(app) {
 				newUser.firstName = req.body.firstName;
 				newUser.lastName = req.body.lastName;
 				newUser.email = req.body.email;
+				newUser.role = access.userRoles.user;
 				newUser.password = newUser.generateHash(req.body.password);
 				newUser.city = req.body.city;
 				newUser.state = req.body.state;
@@ -286,6 +288,12 @@ module.exports = function(app) {
 	// all other routes will go to this route, hence placed last
 	// handle Angular frontend routes
 	app.get('*', function(req, res) {
+		var role = access.userRoles.public,
+			username = '';
+
+		if (req.user) {
+			res.cookie('user', req.user);
+		}
 		// load public index file
 		res.sendfile('./app/index.html');
 	});

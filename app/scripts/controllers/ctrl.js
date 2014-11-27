@@ -2,13 +2,16 @@
 
 
 angular.module('wildhacks2014App')
-	.controller('Ctrl', function ($scope) {
+	.controller('Ctrl', ['$scope', '$location', 'localStorageService', '$rootScope',
+		function ($scope, $location, localStorageService, $rootScope) {
 
 		$scope.loggedIn = true;
 
-		$scope.logOut = function() {
-			$scope.loggedIn = false;
-			$scope.$apply();
-		}
+		$scope.logout = function() {
+			$rootScope.user = { role: 1 };
+			$scope.loggedIn = !$scope.loggedIn;
+			localStorageService.remove('token');
+			$location.path('/');
+		};
 
-	});
+	}]);

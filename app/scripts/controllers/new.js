@@ -27,8 +27,8 @@ function url_base64_decode(str) {
 
 
 angular.module('wildhacks2014App')
-  .controller('NewCtrl', ['$scope', '$http', '$location', 'localStorageService',
-    function ($scope, $http, $location, localStorageService) {
+  .controller('NewCtrl', ['$scope', '$http', '$location', 'localStorageService', '$rootScope',
+    function ($scope, $http, $location, localStorageService, $rootScope) {
 
     $scope.submit = function() {
         $scope.user = {
@@ -54,6 +54,7 @@ angular.module('wildhacks2014App')
             var encodedProfile = data.token.split('.')[1];
             var profile = JSON.parse(url_base64_decode(encodedProfile));
             console.log(profile);
+            $rootScope.user = profile;
             console.log('Successfully signed up!');
           })
           .error(function(data, status, headers, config) {

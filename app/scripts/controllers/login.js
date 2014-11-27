@@ -9,8 +9,8 @@
  */
 
 angular.module('wildhacks2014App')
-  .controller('LoginCtrl', ['$scope', '$http', '$location', 'localStorageService',
-    function ($scope, $http, $location, localStorageService) {
+  .controller('LoginCtrl', ['$scope', '$http', '$location', 'localStorageService', '$rootScope',
+    function ($scope, $http, $location, localStorageService, $rootScope) {
 
     $scope.login = function() {
         $scope.user = {
@@ -26,7 +26,8 @@ angular.module('wildhacks2014App')
             var encodedProfile = data.token.split('.')[1];
             var profile = JSON.parse(url_base64_decode(encodedProfile));
             console.log(profile);
-            console.log('Successfully signed up!');
+            $rootScope.user = profile;
+            console.log('Successfully logged in!');
             $location.url('/dashboard');
           })
           .error(function(data, status, headers, config) {

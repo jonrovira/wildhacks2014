@@ -8,6 +8,7 @@ var userSchema = new mongoose.Schema({
 	mentor: Boolean,
 	firstName: String,
 	lastName: String,
+	role: String,
 	email: String,
 	password: String,
 	menteeID: mongoose.Schema.ObjectId,
