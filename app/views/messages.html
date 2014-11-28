@@ -1,6 +1,18 @@
 <section ng-controller="MessagesCtrl" class="messages">
 	<div class="messages-content">
 		<ul class="message-feed">
+
+			<li ng-repeat="message in messageList"  ng-class="(userName === message.user ? 'message user' : 'message other')">
+				<div class="message-sender">
+					<img class="message-image" src="images/mentee.jpg" />
+					<h5 class="message-name">{{message.user}}</h5>
+				</div>
+				<p class="message-body">
+					{{message.text}}
+				</p>
+			</li>			
+
+			<!--
 			<li class="message user">
 				<div class="message-sender">
 					<img class="message-image" src="images/mentee.jpg" />
@@ -55,6 +67,7 @@
 					Lorem ipsum dolor sit amet, magna lucilius constituam ut vel. Malis altera viderer no vim, te sed rebum veritus. Cu vix autem volumus, vel ullum percipit in. Eos affert petentium inciderint te, in pri natum noluisse, vis id unum dicunt sensibus.
 				</p>
 			</li>
+			-->
 
 		</ul>
 		<form ng-submit="send()">

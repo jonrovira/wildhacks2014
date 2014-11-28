@@ -146,7 +146,7 @@ module.exports = function(app) {
 		newMessage.text = req.body.text;
 		newMessage.user = req.body.user;
 		newMessage.userID = req.body.userID;
-		newMessage.time = req.body.time;
+		newMessage.time = Date.now();
 
 		newMessage.save(function(err, msg) {
 			if (err) {

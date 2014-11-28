@@ -21,7 +21,7 @@ angular.module('wildhacks2014App')
       // send get request to get all messages from REST API
       $http.get('/api/messages').success(function(data, status) {
         console.log(data);
-        $scope.messages = data;
+        $scope.messageList = data;
         $scope.userName = fullName;
       });
 
@@ -31,8 +31,7 @@ angular.module('wildhacks2014App')
         var msg = {
           text: $rootScope.message,
           user: fullName,
-          userID: profile._id,
-          time: Date.now()
+          userID: profile._id
         };
 
         // send post request to add message to database
