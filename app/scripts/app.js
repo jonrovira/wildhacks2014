@@ -17,7 +17,8 @@ var app = angular
         'ngRoute',
         'ngSanitize',
         'ngTouch',
-        'LocalStorageModule'
+        'LocalStorageModule',
+        'angularFileUpload'
     ])
     .config(function ($routeProvider) {
 

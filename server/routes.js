@@ -6,7 +6,9 @@ var User = require('./models/User'),
 	Message = require('./models/Message'),
 	Relationship = require('./models/Relationship'),
 	jwt = require('jsonwebtoken'),
-	access = require('../config/userRoles');
+	access = require('../config/userRoles'),
+	fs = require('fs'),
+	path = require('path');
 
 module.exports = function(app) {
 
@@ -103,6 +105,13 @@ module.exports = function(app) {
 				});
 			}
 		});
+	});
+
+	/* UPLOAD */
+	
+	app.post('/upload', function(req, res) {
+		console.log('backend upload route reached');
+		console.log(req);
 	});
 
 	/* REST API */

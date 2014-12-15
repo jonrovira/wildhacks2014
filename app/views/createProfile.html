@@ -5,7 +5,14 @@
 		<form>
 
 			<div class="business-items">
-				<div class="image-container"><i class="fa fa-plus"></i></div>
+				<!--
+				<div class="image-container" ng-file-select="onFileSelect($files)">
+					<label for="upload-file"> <i class="fa fa-plus"></i> </label>
+					<input id="upload-file" type="file" ng-file-select="onFileSelect($files)" />
+					<span><i class="fa fa-plus"></i></span>
+				</div>
+				-->
+				<input type="file" ng-file-select="onFileSelect($files)" />
 				<div class="business-item-inputs">
 					<input id="email" ng-model="email" name="email" type="text" placeholder="Email address" />
 					<input id="password" ng-model="password" name="password" type="password" placeholder="Password" />
@@ -34,6 +41,8 @@
 
 			</div>
 			<input name="submit" type="submit" value="Sign Up" />
+
+			<img ng-src="{{imgurl}}" ng-show="imgurl" alt="preview for uploaded image" >
 		</form>
 	</div>
 </section>
